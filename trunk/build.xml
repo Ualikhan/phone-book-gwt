@@ -2,8 +2,11 @@
 <project name="ContactBook" basedir="." default="war" 
 
 xmlns:ivy="antlib:org.apache.ivy.ant" >
-
-    <property name="gwt.module.name" value="my.projects.contactbook.ContactBook"/>
+	<property name="dbuser" value="postgres"/>
+	<property name="dbpassword" value="admin"/>
+	<property name="dburl" value="jdbc:postgresql://localhost:5432/template1"/>
+	
+	<property name="gwt.module.name" value="my.projects.contactbook.ContactBook"/>
     <property name="server.resources.name" value="server_resources"/>
     <property name="jar.name" value="contactbook.jar"/>
     <property name="war.name" value="contactbook.war"/>
@@ -60,9 +63,9 @@ xmlns:ivy="antlib:org.apache.ivy.ant" >
 		<target name="create-db" depends="gwt-compile">
 			<sql driver="org.postgresql.Driver" 
 			      classpathref="project.classpath"
-				  url="jdbc:postgresql://localhost:5432/template1"
-								        userid="postgres"
-								        password="admin"
+				  url="${dburl}"
+								        userid="${dbuser}"
+								        password="${dbpassword}"
 								        autocommit="true">
 										SELECT pg_terminate_backend
 							(pg_stat_activity.procpid)
