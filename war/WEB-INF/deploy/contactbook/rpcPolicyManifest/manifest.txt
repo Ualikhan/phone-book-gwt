@@ -1,0 +1,3 @@
+# Module contactbook
+# RPC service class, partial path of RPC policy file
+my.projects.contactbook.client.GreetingService, C7D9DBC95AA6D957BFD2757DA7345921.gwt.rpc
